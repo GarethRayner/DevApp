@@ -5,4 +5,5 @@
     <string name="action_settings">Settings</string>
     <string name="search_icon">Search</string>
     <string name="select_title">Select Below:</string>
+    <string name="article_label">Article Read</string>
 </resources>

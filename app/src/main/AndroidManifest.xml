@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ArticleRead"
+            android:label="@string/article_label"
+            android:parentActivityName="." >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" /> >
+        </activity>
     </application>
 
 </manifest>

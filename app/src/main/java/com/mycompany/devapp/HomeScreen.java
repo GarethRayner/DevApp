@@ -3,9 +3,15 @@ package com.mycompany.devapp;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class HomeScreen extends Activity {
 
@@ -14,9 +20,25 @@ public class HomeScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        //FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getFragmentManager();
 
-        //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        TextView duckSelect = (TextView) findViewById(R.id.duck_selectText);
+        duckSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openArticle(0);
+            }
+        });
+
+        TextView geeseSelect = (TextView) findViewById(R.id.geese_selectText);
+        geeseSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openArticle(1);
+            }
+        });
     }
 
     @Override
@@ -39,5 +61,17 @@ public class HomeScreen extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void openArticle(int article) {
+        Intent intent = new Intent(this, ArticleRead.class);
+        switch(article) {
+            case 0:
+                intent.putExtra("article", "duck");
+            case 1:
+                intent.putExtra("article", "geese");
+        }
+
+        startActivity(intent);
     }
 }
