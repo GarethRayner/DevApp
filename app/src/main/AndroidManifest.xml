@@ -19,7 +19,7 @@
         <activity
             android:name=".ArticleRead"
             android:label="@string/article_label"
-            android:parentActivityName="." >
+            android:parentActivityName=".HomeScreen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.devapp.HomeScreen" /> >

@@ -17,7 +17,7 @@
             android:text="@string/select_title"
             android:textSize="25sp" />
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
@@ -34,6 +34,7 @@
             android:id="@+id/article_geese"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_below="@id/article_ducks"
             tools:layout="@layout/article_geese_select" />
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

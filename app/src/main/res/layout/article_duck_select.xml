@@ -5,6 +5,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="20sp"
         android:id="@+id/duck_selectText"
         android:text="An Article about Ducks" android:textSize="20sp" />
 </LinearLayout>

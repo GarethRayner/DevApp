@@ -1,17 +1,12 @@
 package com.mycompany.devapp;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class HomeScreen extends Activity {
 
@@ -19,10 +14,6 @@ public class HomeScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
-
-        FragmentManager fragmentManager = getFragmentManager();
-
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         TextView duckSelect = (TextView) findViewById(R.id.duck_selectText);
         duckSelect.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +59,10 @@ public class HomeScreen extends Activity {
         switch(article) {
             case 0:
                 intent.putExtra("article", "duck");
+                break;
             case 1:
                 intent.putExtra("article", "geese");
+                break;
         }
 
         startActivity(intent);
