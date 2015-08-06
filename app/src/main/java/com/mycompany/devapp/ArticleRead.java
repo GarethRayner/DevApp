@@ -5,8 +5,11 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
-public class ArticleRead extends Activity {
+public class ArticleRead extends Activity
+    implements DuckArticleFragment.OnApproveListener {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,4 +36,13 @@ public class ArticleRead extends Activity {
         articleLoaderTrans.commit();
     }
 
+    @Override
+    public void onApproval(boolean approve) {
+        if(approve) {
+            TextView approval = new TextView(this);
+            approval.setText("You approve of this article!");
+
+            setContentView(approval);
+        }
+    }
 }
