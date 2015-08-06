@@ -12,5 +12,6 @@
     <string name="geese_article_content">Geese are scary creatures that tend to chase you with little to no provocation but are generally quite popular in France as guards for dangerous or important areas. Always approach with caution as these feathered beasts are temperamental but will generally try and look cute.</string>
     <string name="approve_button_article">Approve</string>
     <string name="article_slider_button">Article Slider</string>
-    <string name="title_activity_article_slider">ArticleSlider</string>
+    <string name="title_activity_article_slider">Article Slider</string>
+    <string name="title_activity_new_art">New Articles</string>
 </resources>
