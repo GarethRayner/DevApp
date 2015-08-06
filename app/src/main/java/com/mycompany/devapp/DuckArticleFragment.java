@@ -2,7 +2,7 @@ package com.mycompany.devapp;
 
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +21,7 @@ public class DuckArticleFragment extends Fragment implements View.OnClickListene
         approveButton.setOnClickListener(this);
         return view;
     }
-    
+
     @Override
     public void onClick(View v) {
         approve(v);

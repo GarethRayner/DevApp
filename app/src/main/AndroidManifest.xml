@@ -22,7 +22,16 @@
             android:parentActivityName=".HomeScreen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mycompany.devapp.HomeScreen" /> >
+                android:value="com.mycompany.devapp.HomeScreen" />
+ >
+        </activity>
+        <activity
+            android:name=".ArticleSlider"
+            android:label="@string/title_activity_article_slider"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
         </activity>
     </application>
 

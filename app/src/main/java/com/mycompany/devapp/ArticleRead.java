@@ -1,13 +1,14 @@
 package com.mycompany.devapp;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ArticleRead extends Activity
+public class ArticleRead extends FragmentActivity
     implements DuckArticleFragment.OnApproveListener {
 
     @Override
@@ -15,7 +16,7 @@ public class ArticleRead extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.article_read);
 
-        FragmentManager articleLoader = getFragmentManager();
+        FragmentManager articleLoader = getSupportFragmentManager();
 
         FragmentTransaction articleLoaderTrans = articleLoader.beginTransaction();
 

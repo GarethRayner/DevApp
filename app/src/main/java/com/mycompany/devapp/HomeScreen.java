@@ -67,4 +67,9 @@ public class HomeScreen extends Activity {
 
         startActivity(intent);
     }
+
+    public void articleSlider(View v) {
+        Intent intent = new Intent(this, ArticleSlider.class);
+        startActivity(intent);
+    }
 }

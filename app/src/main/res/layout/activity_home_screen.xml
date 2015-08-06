@@ -18,6 +18,7 @@
             android:textSize="25sp" />
     </LinearLayout>
     <RelativeLayout
+        android:id="@+id/articles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
@@ -36,5 +37,15 @@
             android:layout_width="match_parent"
             android:layout_below="@id/article_ducks"
             tools:layout="@layout/article_geese_select" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/articles" >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/article_slider_button"
+            android:onClick="articleSlider"/>
     </RelativeLayout>
 </RelativeLayout>
