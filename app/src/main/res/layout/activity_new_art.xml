@@ -12,18 +12,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <ListView
-            android:id="@+id/navElem"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:layout_gravity="start"
-            android:dividerHeight="0dp"
-            android:background="#111">
-        </ListView>
-    </RelativeLayout>
+    <ListView
+        android:id="@+id/navElem"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:layout_gravity="left"
+        android:dividerHeight="0dp"
+        android:background="#111">
+    </ListView>
 </android.support.v4.widget.DrawerLayout>
