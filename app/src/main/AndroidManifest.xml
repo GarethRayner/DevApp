@@ -35,7 +35,11 @@
         </activity>
         <activity
             android:name=".NewArt"
-            android:label="@string/title_activity_new_art" >
+            android:label="@string/title_activity_new_art"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
         </activity>
         <activity
             android:name=".NewArtRead"

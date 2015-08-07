@@ -1,14 +1,9 @@
 package com.mycompany.devapp;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class NewArt extends Activity {
     private RecyclerView mRecyclerView;
