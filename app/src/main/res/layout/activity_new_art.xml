@@ -1,9 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/newArtDisplay"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navDraw"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</RelativeLayout>
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/newArtDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/navElem"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:layout_gravity="start"
+            android:dividerHeight="0dp"
+            android:background="#111">
+        </ListView>
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

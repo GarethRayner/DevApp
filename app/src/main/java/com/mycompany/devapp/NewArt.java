@@ -2,19 +2,27 @@ package com.mycompany.devapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class NewArt extends Activity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private DrawerLayout mDrawerLayout;
+    private ListView articleNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_art);
         mRecyclerView = (RecyclerView) findViewById(R.id.newArtDisplay);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.navDraw);
+        articleNav = (ListView) findViewById(R.id.navElem);
 
         mRecyclerView.setHasFixedSize(true);
 
