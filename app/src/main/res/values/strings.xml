@@ -17,4 +17,5 @@
     <string name="title_activity_new_art_read">New Article</string>
     <string name="drawer_open">Open Nav</string>
     <string name="drawer_close">Nav Close</string>
+    <string name="approval">You approve of this article!</string>
 </resources>

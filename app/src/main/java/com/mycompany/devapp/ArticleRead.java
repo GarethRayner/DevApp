@@ -1,6 +1,5 @@
 package com.mycompany.devapp;
 
-import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -27,11 +26,11 @@ public class ArticleRead extends FragmentActivity
         if(choice.compareTo("duck") == 0) {
             DuckArticleFragment duckArticle = new DuckArticleFragment();
 
-            articleLoaderTrans.replace(R.id.articleContainer, duckArticle).addToBackStack(null);
+            articleLoaderTrans.replace(R.id.articleContainer, duckArticle);
         } else {
             GeeseArticleFragment geeseArticle = new GeeseArticleFragment();
 
-            articleLoaderTrans.replace(R.id.articleContainer, geeseArticle).addToBackStack(null);
+            articleLoaderTrans.replace(R.id.articleContainer, geeseArticle);
         }
 
         articleLoaderTrans.commit();
@@ -40,10 +39,14 @@ public class ArticleRead extends FragmentActivity
     @Override
     public void onApproval(boolean approve) {
         if(approve) {
-            TextView approval = new TextView(this);
-            approval.setText("You approve of this article!");
+            ApprovalFragment approveFrag = new ApprovalFragment();
 
-            setContentView(approval);
+            FragmentManager approveFragMan = getSupportFragmentManager();
+
+            FragmentTransaction approveTrans = approveFragMan.beginTransaction();
+
+            approveTrans.add(R.id.approvalCont, approveFrag).addToBackStack(null);
+            approveTrans.commit();
         }
     }
 }
