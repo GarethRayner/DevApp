@@ -27,11 +27,11 @@ public class ArticleRead extends FragmentActivity
         if(choice.compareTo("duck") == 0) {
             DuckArticleFragment duckArticle = new DuckArticleFragment();
 
-            articleLoaderTrans.replace(R.id.articleContainer, duckArticle);
+            articleLoaderTrans.replace(R.id.articleContainer, duckArticle).addToBackStack(null);
         } else {
             GeeseArticleFragment geeseArticle = new GeeseArticleFragment();
 
-            articleLoaderTrans.replace(R.id.articleContainer, geeseArticle);
+            articleLoaderTrans.replace(R.id.articleContainer, geeseArticle).addToBackStack(null);
         }
 
         articleLoaderTrans.commit();
