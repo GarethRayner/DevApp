@@ -46,6 +46,7 @@ public class ArticleRead extends FragmentActivity
             FragmentTransaction approveTrans = approveFragMan.beginTransaction();
 
             approveTrans.add(R.id.approvalCont, approveFrag).addToBackStack(null);
+
             approveTrans.commit();
         }
     }
