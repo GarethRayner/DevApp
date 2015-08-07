@@ -1,15 +1,16 @@
 package com.mycompany.devapp;
 
-import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ArticleRead extends FragmentActivity
     implements DuckArticleFragment.OnApproveListener {
+    private boolean approvalWarned = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +41,35 @@ public class ArticleRead extends FragmentActivity
     @Override
     public void onApproval(boolean approve) {
         if(approve) {
-            TextView approval = new TextView(this);
-            approval.setText("You approve of this article!");
+            ApprovalFragment approveFrag = new ApprovalFragment();
 
-            setContentView(approval);
+            FragmentManager approveFragMan = getSupportFragmentManager();
+
+            FragmentTransaction approveTrans = approveFragMan.beginTransaction();
+
+            approveTrans.add(R.id.approvalCont, approveFrag).addToBackStack(null);
+
+            getSupportFragmentManager().addOnBackStackChangedListener(
+                    new FragmentManager.OnBackStackChangedListener() {
+                        public void onBackStackChanged() {
+                            if (!approvalWarned) {
+                                RelativeLayout container = (RelativeLayout) findViewById(R.id.approvalLay);
+                                RelativeLayout.LayoutParams parameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+                                TextView warning = new TextView(container.getContext());
+
+                                warning.setText("You cannot disapprove after approving!");
+
+                                parameters.addRule(RelativeLayout.BELOW, R.id.approvalText);
+
+                                container.addView(warning, parameters);
+                                approvalWarned = !approvalWarned;
+                            }
+                        }
+                    }
+            );
+
+            approveTrans.commit();
         }
     }
 }
