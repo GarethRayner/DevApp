@@ -1,13 +1,11 @@
 package com.mycompany.devapp;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ import java.util.List;
 
 public class ArticleSlider extends FragmentActivity
         implements DuckArticleFragment.OnApproveListener {
-    PageAdapter pageAdapter;
+    FragmentPagerAdapter pageAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,7 +22,7 @@ public class ArticleSlider extends FragmentActivity
         setContentView(R.layout.activity_article_slider);
         List<Fragment> articles = getArticles();
 
-        pageAdapter = new PageAdapter(getSupportFragmentManager(), articles);
+        pageAdapter = new PagePagerAdapter(getSupportFragmentManager());
         ViewPager pager = (ViewPager) findViewById(R.id.article_slider_pages);
 
         pager.setAdapter(pageAdapter);
