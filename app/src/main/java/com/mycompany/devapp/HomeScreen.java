@@ -51,6 +51,10 @@ public class HomeScreen extends Activity {
                 return true;
             case R.id.notes:
                 openNotes();
+                return true;
+            case R.id.action_free_view:
+                openFreeView();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -82,6 +86,16 @@ public class HomeScreen extends Activity {
 
     public void openNotes() {
         Intent intent = new Intent(this, Notes.class);
+        startActivity(intent);
+    }
+
+    public void freeP(View v) {
+        Intent intent = new Intent(this, FreePress.class);
+        startActivity(intent);
+    }
+
+    public void openFreeView() {
+        Intent intent = new Intent(this, FreeView.class);
         startActivity(intent);
     }
 }

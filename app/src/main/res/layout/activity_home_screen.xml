@@ -43,16 +43,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/articles" >
         <Button
-            android:id="@+id/newArt"
+            android:id="@+id/artSlide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/article_slider_button"
             android:onClick="articleSlider"/>
         <Button
+            android:id="@+id/newArt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/artSlide"
+            android:text="@string/title_activity_new_art"
+            android:onClick="newArt"/>
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/newArt"
-            android:text="@string/title_activity_new_art"
-            android:onClick="newArt"/>
+            android:text="@string/free_press_button"
+            android:onClick="freeP"/>
     </RelativeLayout>
 </RelativeLayout>

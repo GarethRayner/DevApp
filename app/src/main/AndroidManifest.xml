@@ -57,6 +57,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.devapp.HomeScreen" />
         </activity>
+        <activity
+            android:name=".FreePress"
+            android:label="@string/title_activity_free_press"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".FreeView"
+            android:label="@string/title_activity_free_view"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
     </application>
 
 </manifest>

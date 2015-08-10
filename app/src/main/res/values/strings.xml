@@ -24,4 +24,15 @@
     <string name="no_note">No current note.</string>
     <string name="submit_notes">Submit</string>
     <string name="notes_menu">Notes</string>
+    <string name="title_activity_free_press">Free Press</string>
+    <string name="free_press_title">Add Free Press</string>
+    <string name="title_free_add">Title</string>
+    <string name="content_free">Content</string>
+    <string name="submit_free_press">Submit Free Press</string>
+    <string name="free_press_button">Free Press</string>
+    <string name="title_activity_free_view">Free Press Viewer</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="free_icon">Free Press</string>
 </resources>
