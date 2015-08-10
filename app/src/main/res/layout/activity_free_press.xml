@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:text="@string/free_press_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:id="@+id/free_title"/>
+
+    <TextView android:text="@string/title_free_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/free_title"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:id="@+id/title_text_free"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/free_press_title_add"
+        android:layout_below="@id/title_text_free"
+        android:paddingTop="20dp"/>
+
+    <TextView android:text="@string/content_free"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/free_press_title_add"
+        android:paddingTop="20dp"
+        android:textSize="20sp"
+        android:id="@+id/content_free"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/free_content_add"
+        android:layout_below="@id/content_free"
+        android:paddingTop="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/free_content_add"
+        android:layout_centerHorizontal="true"
+        android:text="@string/submit_free_press"
+        android:onClick="addFree"/>
+</RelativeLayout>
