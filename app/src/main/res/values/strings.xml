@@ -18,4 +18,10 @@
     <string name="drawer_open">Open Nav</string>
     <string name="drawer_close">Nav Close</string>
     <string name="approval">You approve of this article!</string>
+    <string name="title_activity_notes">Notes</string>
+    <string name="notes">Make a Note!</string>
+    <string name="current_note_hint">Current Note</string>
+    <string name="no_note">No current note.</string>
+    <string name="submit_notes">Submit</string>
+    <string name="notes_menu">Notes</string>
 </resources>

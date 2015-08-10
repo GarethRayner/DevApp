@@ -46,9 +46,11 @@ public class HomeScreen extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id) {
+            case R.id.action_settings:
+                return true;
+            case R.id.notes:
+                openNotes();
         }
 
         return super.onOptionsItemSelected(item);
@@ -75,6 +77,11 @@ public class HomeScreen extends Activity {
 
     public void newArt(View v) {
         Intent intent = new Intent(this, NewArt.class);
+        startActivity(intent);
+    }
+
+    public void openNotes() {
+        Intent intent = new Intent(this, Notes.class);
         startActivity(intent);
     }
 }
