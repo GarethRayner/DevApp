@@ -7,9 +7,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 public class FreePageAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragments;
+    private List<FreePressArt> fragments;
 
-    public FreePageAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public FreePageAdapter(FragmentManager fm, List<FreePressArt> fragments) {
         super(fm);
         this.fragments = fragments;
     }
@@ -22,5 +22,11 @@ public class FreePageAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return this.fragments.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        FreePressArt article = fragments.get(position);
+        return article.getTitle();
     }
 }

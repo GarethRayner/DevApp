@@ -23,7 +23,7 @@ public class FreeView extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_free_view);
 
-        List<Fragment> fragments = getFragments();
+        List<FreePressArt> fragments = getFragments();
         pageAdapter = new FreePageAdapter(getSupportFragmentManager(), fragments);
         ViewPager pager = (ViewPager) findViewById(R.id.free_slider_pages);
         pager.setAdapter(pageAdapter);
@@ -51,8 +51,8 @@ public class FreeView extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private List<Fragment> getFragments() {
-        List<Fragment> fragments = new ArrayList<Fragment>();
+    private List<FreePressArt> getFragments() {
+        List<FreePressArt> fragments = new ArrayList<FreePressArt>();
         Scanner freeArts = null;
 
         try {
