@@ -2,8 +2,6 @@ package com.mycompany.devapp;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
