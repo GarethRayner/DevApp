@@ -22,13 +22,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#694434">
         <fragment
             android:name="com.mycompany.devapp.article_duck_select"
             android:id="@+id/article_ducks"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
             tools:layout="@layout/article_duck_select" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/article_ducks"
+            android:background="#5A301E" />
 
         <fragment
             android:name="com.mycompany.devapp.article_geese_select"
@@ -37,15 +45,32 @@
             android:layout_width="match_parent"
             android:layout_below="@id/article_ducks"
             tools:layout="@layout/article_geese_select" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/article_geese"
+            android:background="#5A301E" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/articles" >
+        android:layout_below="@id/articles"
+        android:paddingTop="10dp">
+        <TextView
+            android:id="@+id/divisor"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:paddingTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginLeft="2dp"
+            android:background="#000000" />
         <Button
             android:id="@+id/artSlide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/divisor"
             android:text="@string/article_slider_button"
             android:onClick="articleSlider"/>
         <Button

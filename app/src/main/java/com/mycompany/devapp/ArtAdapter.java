@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ArtAdapter extends RecyclerView.Adapter<ArtAdapter.ViewHolder> {
@@ -44,7 +45,8 @@ public class ArtAdapter extends RecyclerView.Adapter<ArtAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.display.setText(articles[position]);
+        TextView tv = (TextView) holder.display.findViewById(R.id.content);
+        tv.setText(articles[position]);
     }
 
     @Override
