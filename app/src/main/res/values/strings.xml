@@ -36,4 +36,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="free_icon">Free Press</string>
     <string name="duck_fragment_title">An Article about Ducks</string>
+    <string name="title_activity_user_login">User Login</string>
+    <string name="home_screen_title">Home</string>
+    <string name="login_title">Login to Service</string>
+    <string name="register_action">Register</string>
+    <string name="delete_action">Delete User</string>
+    <string name="username_label">Username</string>
+    <string name="password">Password</string>
+    <string name="login_button_label">Login to News</string>
+    <string name="title_activity_user_register">User Register</string>
+    <string name="register_title">Register a User</string>
+    <string name="pick_name_label">Pick a Username</string>
+    <string name="pass_register_label">Choose a Password</string>
+    <string name="register_button_label">Register User</string>
 </resources>
