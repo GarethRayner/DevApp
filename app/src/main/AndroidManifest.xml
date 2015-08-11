@@ -88,6 +88,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.devapp.UserLogin" />
         </activity>
+        <activity
+            android:name=".DeleteUser"
+            android:label="@string/title_activity_delete_user"
+            android:parentActivityName=".UserLogin" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.UserLogin" />
+        </activity>
     </application>
 
 </manifest>

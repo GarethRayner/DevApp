@@ -54,8 +54,8 @@ public class UserLogin extends Activity {
                 startActivity(intent1);
                 break;
             case 1:
-                //Intent intent2 = new Intent(this, UserDelete.class);
-                //startActivity(intent2);
+                Intent intent2 = new Intent(this, DeleteUser.class);
+                startActivity(intent2);
                 break;
         }
     }
@@ -67,7 +67,7 @@ public class UserLogin extends Activity {
         String username = user.getText().toString();
         String password = pass.getText().toString();
 
-        String result = userDB.getUser(username, password);
+        String result = userDB.getUser(username);
         if(result == null) {
             Toast toast = Toast.makeText(this, "No user found", Toast.LENGTH_SHORT);
             toast.show();

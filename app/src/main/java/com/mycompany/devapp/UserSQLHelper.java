@@ -49,7 +49,7 @@ public class UserSQLHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public String getUser(String username, String password) {
+    public String getUser(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_USERS, COLUMNS, " username = ?", new String[] {username},
@@ -64,5 +64,13 @@ public class UserSQLHelper extends SQLiteOpenHelper {
 
         cursor.close();
         return null;
+    }
+
+    public void deleteUser(String username) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TABLE_USERS, KEY_USERNAME + " = ?", new String[] {username});
+
+        db.close();
     }
 }

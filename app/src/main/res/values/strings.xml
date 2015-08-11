@@ -49,4 +49,7 @@
     <string name="pick_name_label">Pick a Username</string>
     <string name="pass_register_label">Choose a Password</string>
     <string name="register_button_label">Register User</string>
+    <string name="title_activity_delete_user">Delete User</string>
+    <string name="delete_label">Input Username to Delete</string>
+    <string name="delete_max_button">DELETE USER</string>
 </resources>
