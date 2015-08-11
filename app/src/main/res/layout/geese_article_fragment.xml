@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:text="@string/geese_article_title"
+        android:textSize="32sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_below="@id/title"
+        android:background="#000000" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:paddingTop="10sp"
+        android:text="@string/geese_article_content"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/approve"
+        android:text="@string/approve_button_article"
+        android:onClick="approve"/>
+
+</RelativeLayout>

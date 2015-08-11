@@ -16,6 +16,63 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ArticleRead"
+            android:label="@string/article_label"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+ >
+        </activity>
+        <activity
+            android:name=".ArticleSlider"
+            android:label="@string/title_activity_article_slider"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".NewArt"
+            android:label="@string/title_activity_new_art"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".NewArtRead"
+            android:label="@string/title_activity_new_art_read"
+            android:parentActivityName=".NewArt" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.NewArt" />
+        </activity>
+        <activity
+            android:name=".Notes"
+            android:label="@string/title_activity_notes"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".FreePress"
+            android:label="@string/title_activity_free_press"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".FreeView"
+            android:label="@string/title_activity_free_view"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
     </application>
 
 </manifest>

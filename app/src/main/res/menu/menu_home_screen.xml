@@ -2,4 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".HomeScreen">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/action_free_view"
+        android:icon="@drawable/free_ic"
+        android:title="@string/free_icon"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/notes"
+        android:icon="@drawable/notes_ic"
+        android:title="@string/notes_menu"
+        android:showAsAction="ifRoom" />
 </menu>

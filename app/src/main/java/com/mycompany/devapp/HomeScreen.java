@@ -1,9 +1,12 @@
 package com.mycompany.devapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class HomeScreen extends Activity {
 
@@ -11,6 +14,22 @@ public class HomeScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        TextView duckSelect = (TextView) findViewById(R.id.duck_selectText);
+        duckSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openArticle(0);
+            }
+        });
+
+        TextView geeseSelect = (TextView) findViewById(R.id.geese_selectText);
+        geeseSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openArticle(1);
+            }
+        });
     }
 
     @Override
@@ -27,11 +46,56 @@ public class HomeScreen extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id) {
+            case R.id.action_settings:
+                return true;
+            case R.id.notes:
+                openNotes();
+                return true;
+            case R.id.action_free_view:
+                openFreeView();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void openArticle(int article) {
+        Intent intent = new Intent(this, ArticleRead.class);
+        switch(article) {
+            case 0:
+                intent.putExtra("article", "duck");
+                break;
+            case 1:
+                intent.putExtra("article", "geese");
+                break;
+        }
+
+        startActivity(intent);
+    }
+
+    public void articleSlider(View v) {
+        Intent intent = new Intent(this, ArticleSlider.class);
+        startActivity(intent);
+    }
+
+    public void newArt(View v) {
+        Intent intent = new Intent(this, NewArt.class);
+        startActivity(intent);
+    }
+
+    public void openNotes() {
+        Intent intent = new Intent(this, Notes.class);
+        startActivity(intent);
+    }
+
+    public void freeP(View v) {
+        Intent intent = new Intent(this, FreePress.class);
+        startActivity(intent);
+    }
+
+    public void openFreeView() {
+        Intent intent = new Intent(this, FreeView.class);
+        startActivity(intent);
     }
 }
