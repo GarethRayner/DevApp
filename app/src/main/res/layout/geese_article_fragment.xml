@@ -5,11 +5,24 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#000000" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title"
         android:text="@string/geese_article_title"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:layout_below="@id/title"
+        android:background="#000000" />
 
     <TextView
         android:id="@+id/content"
