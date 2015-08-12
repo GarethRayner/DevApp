@@ -19,7 +19,7 @@ public class VerifyFunctionality extends Activity {
 
     public void verify(View view) {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        mBuilder.setSmallIcon(R.drawable.verify_ic);
+        mBuilder.setSmallIcon(android.R.drawable.ic_dialog_info);
         mBuilder.setAutoCancel(true);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);

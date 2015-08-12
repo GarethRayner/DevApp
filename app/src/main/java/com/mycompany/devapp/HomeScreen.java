@@ -1,8 +1,13 @@
 package com.mycompany.devapp;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,7 +58,7 @@ public class HomeScreen extends Activity {
                 openNotes();
                 return true;
             case R.id.action_free_view:
-                openFreeView();
+                requestFreePress();
                 return true;
         }
 
@@ -90,13 +95,32 @@ public class HomeScreen extends Activity {
     }
 
     public void freeP(View v) {
-        Intent intent = new Intent(this, FreePress.class);
+        Intent intent = new Intent(this, FreeView.class);
         startActivity(intent);
     }
 
-    public void openFreeView() {
-        Intent intent = new Intent(this, FreeView.class);
-        startActivity(intent);
+    public void requestFreePress() {
+        Intent intent = new Intent(this, FreePress.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        mBuilder.setSmallIcon(android.R.drawable.ic_dialog_info);
+        mBuilder.setContentTitle("Free Press Request");
+        mBuilder.setContentText("Free Press request granted.");
+        mBuilder.setAutoCancel(true);
+
+        PendingIntent requestFree = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(requestFree);
+
+        final int id = 001;
+        final NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                notificationManager.notify(id, mBuilder.build());
+            }
+        }, 2000);
     }
 
     public void verifyApp(View view) {
