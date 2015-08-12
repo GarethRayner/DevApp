@@ -9,12 +9,11 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".HomeScreen"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:label="@string/home_screen_title"
+            android:parentActivityName=".UserLogin" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.UserLogin" />
         </activity>
         <activity
             android:name=".ArticleRead"
@@ -23,7 +22,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.devapp.HomeScreen" />
- >
         </activity>
         <activity
             android:name=".ArticleSlider"
@@ -68,6 +66,39 @@
         <activity
             android:name=".FreeView"
             android:label="@string/title_activity_free_view"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".UserLogin"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UserRegister"
+            android:label="@string/title_activity_user_register"
+            android:parentActivityName=".UserLogin" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.UserLogin" />
+        </activity>
+        <activity
+            android:name=".DeleteUser"
+            android:label="@string/title_activity_delete_user"
+            android:parentActivityName=".UserLogin" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.UserLogin" />
+        </activity>
+        <activity
+            android:name=".VerifyFunctionality"
+            android:label="@string/title_activity_verify_functionality" >
             android:parentActivityName=".HomeScreen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

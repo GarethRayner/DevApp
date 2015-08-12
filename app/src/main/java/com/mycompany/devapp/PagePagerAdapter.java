@@ -5,8 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import java.util.ArrayList;
-
 public class PagePagerAdapter extends FragmentPagerAdapter {
     private DuckArticleFragment duckArticle;
     private GeeseArticleFragment geeseArticle;
