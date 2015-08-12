@@ -60,4 +60,5 @@
     <string name="verify_art_slider">Verify Article Slider</string>
     <string name="new_articles_verify">Verify New Articles</string>
     <string name="verify_free_press">Verify Free Press</string>
+    <string name="login_default">gareth</string>
 </resources>
