@@ -5,7 +5,8 @@
     android:layout_width="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#AC5930">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/newArtDisplay"
@@ -20,6 +21,6 @@
         android:divider="@android:color/transparent"
         android:layout_gravity="left"
         android:dividerHeight="0dp"
-        android:background="#FFF">
+        android:background="#6E391E">
     </ListView>
 </android.support.v4.widget.DrawerLayout>

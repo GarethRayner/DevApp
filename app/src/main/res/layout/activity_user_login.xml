@@ -27,7 +27,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/username"
         android:layout_below="@id/usernameLabel"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/login_default" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +46,8 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/password"
         android:inputType="textPassword"
-        android:layout_below="@id/passLabel" />
+        android:layout_below="@id/passLabel"
+        android:text="test"/>
 
     <Button
         android:layout_width="wrap_content"
