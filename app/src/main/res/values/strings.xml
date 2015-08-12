@@ -52,4 +52,12 @@
     <string name="title_activity_delete_user">Delete User</string>
     <string name="delete_label">Input Username to Delete</string>
     <string name="delete_max_button">DELETE USER</string>
+    <string name="title_activity_verify_functionality">Verify Functionality</string>
+    <string name="verify_function_text">Click the buttons below to verify app functionality</string>
+    <string name="home_verify_app_button">Verify App</string>
+    <string name="verify_duck_art">Verify Duck Article</string>
+    <string name="verify_geese_art">Verify Geese Article</string>
+    <string name="verify_art_slider">Verify Article Slider</string>
+    <string name="new_articles_verify">Verify New Articles</string>
+    <string name="verify_free_press">Verify Free Press</string>
 </resources>

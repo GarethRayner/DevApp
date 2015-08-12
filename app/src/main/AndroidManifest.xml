@@ -96,6 +96,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.devapp.UserLogin" />
         </activity>
+        <activity
+            android:name=".VerifyFunctionality"
+            android:label="@string/title_activity_verify_functionality" >
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
     </application>
 
 </manifest>

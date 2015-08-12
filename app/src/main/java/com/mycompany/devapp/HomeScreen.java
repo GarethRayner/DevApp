@@ -98,4 +98,9 @@ public class HomeScreen extends Activity {
         Intent intent = new Intent(this, FreeView.class);
         startActivity(intent);
     }
+
+    public void verifyApp(View view) {
+        Intent intent = new Intent(this, VerifyFunctionality.class);
+        startActivity(intent);
+    }
 }
