@@ -21,7 +21,8 @@
         android:layout_below="@id/verify_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="verifyArticleDuck"/>
+        android:onClick="verify"
+        android:tag="duck"/>
     <Button
         android:layout_width="180dp"
         android:layout_height="wrap_content"
@@ -30,7 +31,8 @@
         android:layout_below="@id/duck_art"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="verifyArticleGeese"/>
+        android:onClick="verify"
+        android:tag="geese"/>
     <Button
         android:layout_width="180dp"
         android:layout_height="wrap_content"
@@ -39,7 +41,8 @@
         android:layout_below="@id/geese_art"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="verifyArticleSlide"/>
+        android:onClick="verify"
+        android:tag="slider"/>
 
     <Button
         android:layout_width="180dp"
@@ -49,7 +52,8 @@
         android:layout_below="@id/art_slide"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="verifyNewArt"/>
+        android:onClick="verify"
+        android:tag="new"/>
 
     <Button
         android:layout_width="180dp"
@@ -59,5 +63,6 @@
         android:layout_below="@id/new_art"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="verifyFree"/>
+        android:onClick="verify"
+        android:tag="free" />
 </RelativeLayout>
