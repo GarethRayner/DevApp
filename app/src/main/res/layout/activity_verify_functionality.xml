@@ -65,4 +65,15 @@
         android:layout_marginTop="10dp"
         android:onClick="verify"
         android:tag="free" />
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/net"
+        android:text="@string/verify_connection"
+        android:layout_below="@id/free_press"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="verify"
+        android:tag="net" />
 </RelativeLayout>
