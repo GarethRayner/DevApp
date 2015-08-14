@@ -1,54 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#000000" />
-
-    <TextView
+    android:layout_height="wrap_content" >
+    <RelativeLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:text="@string/geese_article_title"
-        android:textSize="32sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:layout_below="@id/title"
-        android:background="#000000" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:background="#000000" />
 
-    <ImageView
-        android:layout_width="400dp"
-        android:layout_height="225dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/title"
-        android:layout_marginTop="10dp"
-        android:id="@+id/article_image"
-        android:contentDescription="@string/article_image_desc"
-        android:scaleType="fitXY"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:text="@string/geese_article_title"
+            android:textSize="32sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/article_image"
-        android:paddingTop="10dp"
-        android:text="@string/geese_article_content"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="2dip"
+            android:layout_below="@id/title"
+            android:background="#000000" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/approve"
-        android:text="@string/approve_button_article"
-        android:onClick="approve"/>
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="225dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/title"
+            android:layout_marginTop="10dp"
+            android:id="@+id/article_image"
+            android:contentDescription="@string/article_image_desc"
+            android:scaleType="fitXY"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_image"
+            android:paddingTop="10dp"
+            android:text="@string/geese_article_content"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/approve"
+            android:text="@string/approve_button_article"
+            android:onClick="approve"/>
+
+    </RelativeLayout>
+</ScrollView>

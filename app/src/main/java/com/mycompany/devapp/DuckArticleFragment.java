@@ -148,8 +148,4 @@ public class DuckArticleFragment extends Fragment implements View.OnClickListene
     public void approve(View view) {
         mCallback.onApproval(true);
     }
-
-    public void setImage(String uri) {
-
-    }
 }
