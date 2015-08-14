@@ -24,12 +24,22 @@
         android:layout_below="@id/title"
         android:background="#000000" />
 
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="225dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title"
+        android:layout_marginTop="10dp"
+        android:id="@+id/article_image"
+        android:contentDescription="@string/article_image_desc"
+        android:scaleType="fitXY"/>
+
     <TextView
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
-        android:paddingTop="10sp"
+        android:layout_below="@id/article_image"
+        android:paddingTop="10dp"
         android:text="@string/geese_article_content"/>
 
     <Button
