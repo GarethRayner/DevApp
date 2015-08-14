@@ -5,8 +5,11 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class HomeScreen extends Activity {
+    int PICK_CONTACT_REQUEST = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +106,36 @@ public class HomeScreen extends Activity {
     public void newsP(View v) {
         Intent intent = new Intent(this, NewsPub.class);
         startActivity(intent);
+    }
+
+    public void contact(View v) {
+        Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
+        intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+        startActivityForResult(intent, PICK_CONTACT_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Uri dialler;
+        if(requestCode == PICK_CONTACT_REQUEST) {
+            if(resultCode == RESULT_OK) {
+                Uri contactUri = data.getData();
+                String[] projection = {ContactsContract.CommonDataKinds.Phone.NUMBER};
+
+                Cursor cursor = getContentResolver().query(contactUri, projection, null, null, null);
+                cursor.moveToFirst();
+
+                int column = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                String number = cursor.getString(column);
+
+                dialler = Uri.parse("tel:" + number);
+            } else {
+                dialler = Uri.parse("tel:01234 555 555");
+            }
+
+            Intent intent = new Intent(Intent.ACTION_DIAL, dialler);
+            startActivity(intent);
+        }
     }
 
     public void requestFreePress() {
