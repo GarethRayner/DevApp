@@ -82,11 +82,18 @@
             android:text="@string/title_activity_new_art"
             android:onClick="newArt"/>
         <Button
+            android:id="@+id/freePress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/newArt"
             android:text="@string/free_press_button"
             android:onClick="freeP"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/freePress"
+            android:text="@string/title_activity_news_pub"
+            android:onClick="newsP"/>
     </RelativeLayout>
     <Button
         android:layout_centerHorizontal="true"
@@ -95,4 +102,4 @@
         android:layout_height="wrap_content"
         android:text="@string/home_verify_app_button"
         android:onClick="verifyApp"/>
-    </RelativeLayout>
+</RelativeLayout>

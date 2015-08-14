@@ -112,6 +112,22 @@
             android:name=".NetTester"
             android:label="@string/title_activity_net_tester" >
         </activity>
+        <activity
+            android:name=".NewsPub"
+            android:label="@string/title_activity_news_pub"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".PubInfo"
+            android:label="@string/title_activity_pub_info"
+            android:parentActivityName=".NewsPub" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.NewsPub" />
+        </activity>
     </application>
 
 </manifest>
