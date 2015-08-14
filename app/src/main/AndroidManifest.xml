@@ -120,6 +120,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.devapp.HomeScreen" />
         </activity>
+        <activity
+            android:name=".PubInfo"
+            android:label="@string/title_activity_pub_info"
+            android:parentActivityName=".NewsPub" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.NewsPub" />
+        </activity>
     </application>
 
 </manifest>

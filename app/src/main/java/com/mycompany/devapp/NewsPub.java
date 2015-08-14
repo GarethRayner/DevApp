@@ -1,13 +1,17 @@
 package com.mycompany.devapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,6 +35,22 @@ public class NewsPub extends Activity {
                 refreshList();
             }
         });
+
+        AdapterView.OnItemClickListener pubClickedHandler = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView title = (TextView) view.findViewById(R.id.news_pub_title);
+                TextView contents = (TextView) view.findViewById(R.id.news_pub_content);
+
+                String content = title.getText().toString() + ":" + contents.getText().toString();
+
+                Intent intent  = new Intent(view.getContext(), PubInfo.class);
+                intent.putExtra("contents", content);
+                startActivity(intent);
+            }
+        };
+
+        ((ListView) findViewById(R.id.list)).setOnItemClickListener(pubClickedHandler);
 
         String file1name = "newsPub.txt";
         file2name = "newsPubUpdated.txt";

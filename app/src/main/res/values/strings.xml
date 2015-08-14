@@ -69,4 +69,5 @@
     <string name="article_image_desc">An image displaying the article subject.</string>
     <string name="title_activity_news_pub">News Publishers</string>
     <string name="refresh_menu_string">Refresh List</string>
+    <string name="title_activity_pub_info">Publisher Info</string>
 </resources>
