@@ -1,68 +1,83 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.mycompany.devapp.VerifyFunctionality">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent" >
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.mycompany.devapp.VerifyFunctionality">
 
-    <TextView android:text="@string/verify_function_text"
-        android:id="@+id/verify_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:gravity="center" />
+        <TextView android:text="@string/verify_function_text"
+            android:id="@+id/verify_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:gravity="center" />
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/duck_art"
-        android:text="@string/verify_duck_art"
-        android:layout_below="@id/verify_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="verify"
-        android:tag="duck"/>
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/geese_art"
-        android:text="@string/verify_geese_art"
-        android:layout_below="@id/duck_art"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="verify"
-        android:tag="geese"/>
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/art_slide"
-        android:text="@string/verify_art_slider"
-        android:layout_below="@id/geese_art"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="verify"
-        android:tag="slider"/>
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/duck_art"
+            android:text="@string/verify_duck_art"
+            android:layout_below="@id/verify_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:onClick="verify"
+            android:tag="duck"/>
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/geese_art"
+            android:text="@string/verify_geese_art"
+            android:layout_below="@id/duck_art"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:onClick="verify"
+            android:tag="geese"/>
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/art_slide"
+            android:text="@string/verify_art_slider"
+            android:layout_below="@id/geese_art"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:onClick="verify"
+            android:tag="slider"/>
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/new_art"
-        android:text="@string/new_articles_verify"
-        android:layout_below="@id/art_slide"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="verify"
-        android:tag="new"/>
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_art"
+            android:text="@string/new_articles_verify"
+            android:layout_below="@id/art_slide"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:onClick="verify"
+            android:tag="new"/>
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/free_press"
-        android:text="@string/verify_free_press"
-        android:layout_below="@id/new_art"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:onClick="verify"
-        android:tag="free" />
-</RelativeLayout>
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/free_press"
+            android:text="@string/verify_free_press"
+            android:layout_below="@id/new_art"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:onClick="verify"
+            android:tag="free" />
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/net"
+            android:text="@string/verify_connection"
+            android:layout_below="@id/free_press"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:onClick="verify"
+            android:tag="net" />
+    </RelativeLayout>
+</ScrollView>

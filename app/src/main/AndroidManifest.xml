@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mycompany.devapp" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -103,6 +107,26 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".NetTester"
+            android:label="@string/title_activity_net_tester" >
+        </activity>
+        <activity
+            android:name=".NewsPub"
+            android:label="@string/title_activity_news_pub"
+            android:parentActivityName=".HomeScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.HomeScreen" />
+        </activity>
+        <activity
+            android:name=".PubInfo"
+            android:label="@string/title_activity_pub_info"
+            android:parentActivityName=".NewsPub" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.devapp.NewsPub" />
         </activity>
     </application>
 

@@ -61,4 +61,13 @@
     <string name="new_articles_verify">Verify New Articles</string>
     <string name="verify_free_press">Verify Free Press</string>
     <string name="login_default">gareth</string>
+    <string name="verify_connection">Verify Connection</string>
+    <string name="title_activity_net_tester">Net Tester</string>
+    <string name="net_ver_test">Network Verification Test</string>
+    <string name="net_test_content_desc">An image to verify your network is connected.</string>
+    <string name="ver_conn_button">Verify Connectivity</string>
+    <string name="article_image_desc">An image displaying the article subject.</string>
+    <string name="title_activity_news_pub">News Publishers</string>
+    <string name="refresh_menu_string">Refresh List</string>
+    <string name="title_activity_pub_info">Publisher Info</string>
 </resources>

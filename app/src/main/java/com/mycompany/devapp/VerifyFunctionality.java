@@ -18,6 +18,7 @@ public class VerifyFunctionality extends Activity {
     }
 
     public void verify(View view) {
+        boolean net = false;
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setSmallIcon(android.R.drawable.ic_dialog_info);
         mBuilder.setAutoCancel(true);
@@ -68,15 +69,27 @@ public class VerifyFunctionality extends Activity {
                 stackBuilder.addParentStack(FreePress.class);
                 stackBuilder.addNextIntent(resultIntent);
                 break;
+            case "net":
+                net = true;
+                break;
         }
 
-        PendingIntent backtrack = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        if(net) {
+            openNetTester();
+        } else {
+            PendingIntent backtrack = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        mBuilder.setContentIntent(backtrack);
+            mBuilder.setContentIntent(backtrack);
 
-        int notificationId = 001;
+            int notificationId = 001;
 
-        NotificationManager notify = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notify.notify(notificationId, mBuilder.build());
+            NotificationManager notify = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notify.notify(notificationId, mBuilder.build());
+        }
+    }
+
+    public void openNetTester() {
+        Intent intent = new Intent(this, NetTester.class);
+        startActivity(intent);
     }
 }

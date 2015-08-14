@@ -99,25 +99,39 @@ public class HomeScreen extends Activity {
         startActivity(intent);
     }
 
+    public void newsP(View v) {
+        Intent intent = new Intent(this, NewsPub.class);
+        startActivity(intent);
+    }
+
     public void requestFreePress() {
-        Intent intent = new Intent(this, FreePress.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intentCom = new Intent(this, FreePress.class);
+        intentCom.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        mBuilder.setSmallIcon(android.R.drawable.ic_dialog_info);
+        mBuilder.setSmallIcon(android.R.drawable.ic_dialog_alert);
         mBuilder.setContentTitle("Free Press Request");
-        mBuilder.setContentText("Free Press request granted.");
+        mBuilder.setContentText("Free Press request processing.");
         mBuilder.setAutoCancel(true);
 
-        PendingIntent requestFree = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent requestFree = PendingIntent.getActivity(this, 0, new Intent(), 0);
+        final PendingIntent requestCom = PendingIntent.getActivity(this, 0, intentCom, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(requestFree);
 
         final int id = 001;
         final NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
+        notificationManager.notify(id, mBuilder.build());
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                mBuilder.setSmallIcon(android.R.drawable.ic_dialog_info);
+                mBuilder.setContentTitle("Free Press Access");
+                mBuilder.setContentText("Free Press access granted.");
+
+                mBuilder.setContentIntent(requestCom);
+
                 notificationManager.notify(id, mBuilder.build());
             }
         }, 2000);

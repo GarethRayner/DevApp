@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class ArticleRead extends FragmentActivity
     implements DuckArticleFragment.OnApproveListener {
-    private boolean approvalWarned = false;
+    private boolean approvalWarned;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,40 +36,50 @@ public class ArticleRead extends FragmentActivity
         }
 
         articleLoaderTrans.commit();
+
+        getSupportFragmentManager().addOnBackStackChangedListener(
+                new FragmentManager.OnBackStackChangedListener() {
+                    public void onBackStackChanged() {
+                        if (!approvalWarned) {
+                            RelativeLayout container = (RelativeLayout) findViewById(R.id.approvalLay);
+                            RelativeLayout.LayoutParams parameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+                            TextView warning = new TextView(container.getContext());
+
+                            warning.setText("You cannot disapprove after approving!");
+
+                            parameters.addRule(RelativeLayout.BELOW, R.id.approvalText);
+
+                            container.addView(warning, parameters);
+                            approvalWarned = true;
+                        } else {
+                            approvalWarned = false;
+                        }
+                    }
+                }
+        );
     }
 
     @Override
     public void onApproval(boolean approve) {
-        if(approve) {
-            ApprovalFragment approveFrag = new ApprovalFragment();
+        String test;
+        try {
+            TextView approveView = (TextView) findViewById(R.id.approvalText);
+            test = approveView.getText().toString();
+        } catch(NullPointerException e) {
+            test = "";
+        }
 
-            FragmentManager approveFragMan = getSupportFragmentManager();
+        if(test.compareTo("You approve of this article!") != 0) {
+                ApprovalFragment approveFrag = new ApprovalFragment();
 
-            FragmentTransaction approveTrans = approveFragMan.beginTransaction();
+                FragmentManager approveFragMan = getSupportFragmentManager();
 
-            approveTrans.add(R.id.approvalCont, approveFrag).addToBackStack(null);
+                FragmentTransaction approveTrans = approveFragMan.beginTransaction();
 
-            getSupportFragmentManager().addOnBackStackChangedListener(
-                    new FragmentManager.OnBackStackChangedListener() {
-                        public void onBackStackChanged() {
-                            if (!approvalWarned) {
-                                RelativeLayout container = (RelativeLayout) findViewById(R.id.approvalLay);
-                                RelativeLayout.LayoutParams parameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                approveTrans.add(R.id.approvalCont, approveFrag).addToBackStack(null);
 
-                                TextView warning = new TextView(container.getContext());
-
-                                warning.setText("You cannot disapprove after approving!");
-
-                                parameters.addRule(RelativeLayout.BELOW, R.id.approvalText);
-
-                                container.addView(warning, parameters);
-                                approvalWarned = !approvalWarned;
-                            }
-                        }
-                    }
-            );
-
-            approveTrans.commit();
+                approveTrans.commit();
         }
     }
 }

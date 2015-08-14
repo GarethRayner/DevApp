@@ -16,6 +16,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Scanner;
+
 public class NewArt extends Activity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -70,18 +79,77 @@ public class NewArt extends Activity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        String[] articles = new String[6];
-        articles[0] = "Ducks all time best pet.";
-        articles[1] = "Geese all time worst pet.";
-        articles[2] = "Ducks and Geese fight for best pet spot.";
-        articles[3] = "Air traffic increasing as avian activity increases";
-        articles[4] = "Record consumption of E-Cola";
-        articles[5] = "Ducks mutually gather with Geese against E-Cola";
+        //New JSON parsing.
+        String filename="NewArtJson.txt";
+        File file = new File(filename);
 
-        articleNav.setAdapter(new ArrayAdapter<String>(this, R.layout.new_article_display, articles));
+        if(!file.exists()) {
+            String json = "{\"titles\":[{\"0\": \"Duck all time Best Pet.\"},{\"1\": \"Goose all time Worst Pet\"},{\"2\": \"Ducks and Geese fight over Best Pet spot.\"},{\"3\": \"Air Traffic increasing as Avian activity increases.\"},{\"4\": \"Record consumption of E-Cola.\"},{\"5\": \"Ducks mutually gather with Geese against E-Cola over pollution rows.\"}],\"contents\":[{\"0\": \"Today, ducks were announced as the best kind of creature to keep as a pet. This is owing to several reasons, such as the fact that ducks do not eat much food, rarely leave much noticeable mess and are generally quite docile in nature. This has naturally caused quite a stir among the community of Geese.\"},{\"1\": \"In a scene of outrage, today it was announced that a Goose is now the word's Worst Pet. The explanation given provided rationalisation of the propensity for geese to randomly attack passers-by, gathering in threatening groups and generally being quite anti-social.\"},{\"2\": \"Due to the recent changes in positions of pets and the status changes that occurred, Geese and Ducks are competing quite fiercely over the prized status of being the world's Best Pet. This has caused quite a disturbance in the natural community.\"},{\"3\": \"With the latest news about the Best Pet and Worst Pet declarations, the fighting currently occurring due to these changes has caused a remarkable increase in avian activity - and consequently, a lot of air traffic. Pilots have commented on the sudden need to change direction quickly to avoid travelling avian beasts.\"},{\"4\": \"With the world suddenly experiencing flight delays due to avian disruption, air travel patrons have been consuming more and more of E-Cola. This has required the company to significantly advance their production, producing much more than average. A company spokesperson was pleased to state that it spelled good news for the business.\"},{\"5\": \"In a rare display of community, Ducks and Geese are banding together to ensure the sudden surge of E-Cola buyers are bad news for the company. Claiming the pollution produced affects both communities severely, they are conducting boycotts against the company in protest.\"}],\"publisher\": [{\"0\": \"by G. Rayner\"},{\"1\": \"by G. Rayner\"},{\"2\": \"by A. Bird\"},{\"3\": \"by A. Traveller\"},{\"4\": \"by T. Raffic\"},{\"5\": \"by G. Community\"}]}";
+
+            try {
+                FileOutputStream fileOutput = openFileOutput(filename, MODE_PRIVATE);
+                fileOutput.write(json.getBytes());
+            } catch (Exception e) {
+                Log.e("Error", "AAAAARRRRGGHHH! IT BURNS!");
+            }
+        }
+
+        String[] headers = new String[6];
+        String[] contents = new String[6];
+
+        Scanner newArt = null;
+
+        try {
+            FileInputStream JSONFile = openFileInput(filename);
+            newArt = new Scanner(JSONFile);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        String JSONContent;
+
+        if(newArt.hasNextLine()) {
+            JSONContent = newArt.nextLine();
+        } else {
+            JSONContent = "{}";
+        }
+
+        JSONObject json;
+        JSONArray titles;
+        JSONArray content;
+        JSONArray author;
+
+        try {
+            json = new JSONObject(JSONContent);
+            titles = json.optJSONArray("titles");
+            content = json.optJSONArray("contents");
+            author = json.optJSONArray("publisher");
+        } catch(JSONException e) {
+            Log.e("JSON", "Error obtaining JSONs.");
+            titles = null;
+            content = null;
+            author = null;
+        }
+
+        try {
+            for(int i = 0; i < 6; i++) {
+                JSONObject objT = titles.optJSONObject(i);
+                JSONObject objC = content.optJSONObject(i);
+                JSONObject objA = author.optJSONObject(i);
+
+                String tempT = objT.getString(String.valueOf(i));
+                String tempC = objC.getString(String.valueOf(i)) + "\n\n" + objA.getString(String.valueOf(i));
+                headers[i] = tempT;
+                contents[i] = tempC;
+            }
+        } catch(JSONException e) {
+            Log.e("JSON", "Error parsing JSON.");
+        }
+
+        articleNav.setAdapter(new ArrayAdapter<String>(this, R.layout.nav_display_new, headers));
         articleNav.setOnItemClickListener(new NavDrawClickListener());
 
-        mAdapter = new ArtAdapter(articles);
+        mAdapter = new ArtAdapter(headers, contents);
         mRecyclerView.setAdapter(mAdapter);
     }
 
