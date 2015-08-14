@@ -29,6 +29,28 @@ public class ArticleSlider extends FragmentActivity
         ViewPager pager = (ViewPager) findViewById(R.id.article_slider_pages);
 
         pager.setAdapter(pageAdapter);
+
+        getSupportFragmentManager().addOnBackStackChangedListener(
+                new FragmentManager.OnBackStackChangedListener() {
+                    public void onBackStackChanged() {
+                        if (!approvalWarned) {
+                            RelativeLayout container = (RelativeLayout) findViewById(R.id.approvalLay);
+                            RelativeLayout.LayoutParams parameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+                            TextView warning = new TextView(container.getContext());
+
+                            warning.setText("You cannot disapprove after approving!");
+
+                            parameters.addRule(RelativeLayout.BELOW, R.id.approvalText);
+
+                            container.addView(warning, parameters);
+                            approvalWarned = true;
+                        } else {
+                            approvalWarned = false;
+                        }
+                    }
+                }
+        );
     }
 
     private List<Fragment> getArticles() {
@@ -45,7 +67,15 @@ public class ArticleSlider extends FragmentActivity
 
     @Override
     public void onApproval(boolean approve) {
-        if(approve) {
+        String test;
+        try {
+            TextView approveView = (TextView) findViewById(R.id.approvalText);
+            test = approveView.getText().toString();
+        } catch(NullPointerException e) {
+            test = "";
+        }
+
+        if(test.compareTo("You approve of this article!") != 0) {
             ApprovalFragment approveFrag = new ApprovalFragment();
 
             FragmentManager approveFragMan = getSupportFragmentManager();
@@ -53,26 +83,6 @@ public class ArticleSlider extends FragmentActivity
             FragmentTransaction approveTrans = approveFragMan.beginTransaction();
 
             approveTrans.add(R.id.approvalCont, approveFrag).addToBackStack(null);
-
-            getSupportFragmentManager().addOnBackStackChangedListener(
-                    new FragmentManager.OnBackStackChangedListener() {
-                        public void onBackStackChanged() {
-                            if (!approvalWarned) {
-                                RelativeLayout container = (RelativeLayout) findViewById(R.id.approvalLay);
-                                RelativeLayout.LayoutParams parameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-                                TextView warning = new TextView(container.getContext());
-
-                                warning.setText("You cannot disapprove after approving!");
-
-                                parameters.addRule(RelativeLayout.BELOW, R.id.approvalText);
-
-                                container.addView(warning, parameters);
-                                approvalWarned = !approvalWarned;
-                            }
-                        }
-                    }
-            );
 
             approveTrans.commit();
         }
