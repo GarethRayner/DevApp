@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class ArticleRead extends FragmentActivity
     implements DuckArticleFragment.OnApproveListener {
     private boolean approvalWarned;
-    private boolean approved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +54,6 @@ public class ArticleRead extends FragmentActivity
                             approvalWarned = true;
                         } else {
                             approvalWarned = false;
-                            approved = false;
                         }
                     }
                 }
@@ -71,8 +69,8 @@ public class ArticleRead extends FragmentActivity
         } catch(NullPointerException e) {
             test = "";
         }
+
         if(test.compareTo("You approve of this article!") != 0) {
-                approved = true;
                 ApprovalFragment approveFrag = new ApprovalFragment();
 
                 FragmentManager approveFragMan = getSupportFragmentManager();
