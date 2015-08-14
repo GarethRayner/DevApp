@@ -99,6 +99,11 @@ public class HomeScreen extends Activity {
         startActivity(intent);
     }
 
+    public void newsP(View v) {
+        Intent intent = new Intent(this, NewsPub.class);
+        startActivity(intent);
+    }
+
     public void requestFreePress() {
         Intent intentCom = new Intent(this, FreePress.class);
         intentCom.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
