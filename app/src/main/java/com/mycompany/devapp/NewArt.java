@@ -94,8 +94,8 @@ public class NewArt extends Activity {
             }
         }
 
-        String[] articles = new String[6];
         String[] headers = new String[6];
+        String[] contents = new String[6];
 
         Scanner newArt = null;
 
@@ -137,18 +137,19 @@ public class NewArt extends Activity {
                 JSONObject objC = content.optJSONObject(i);
                 JSONObject objA = author.optJSONObject(i);
 
-                String temp = objT.getString(String.valueOf(i)) + "\n\n" + objC.getString(String.valueOf(i)) + "\n\n" + objA.getString(String.valueOf(i));
-                articles[i] = temp;
-                headers[i] = objT.getString(String.valueOf(i));
+                String tempT = objT.getString(String.valueOf(i));
+                String tempC = objC.getString(String.valueOf(i)) + "\n\n" + objA.getString(String.valueOf(i));
+                headers[i] = tempT;
+                contents[i] = tempC;
             }
         } catch(JSONException e) {
             Log.e("JSON", "Error parsing JSON.");
         }
 
-        articleNav.setAdapter(new ArrayAdapter<String>(this, R.layout.new_article_display, headers));
+        articleNav.setAdapter(new ArrayAdapter<String>(this, R.layout.nav_display_new, headers));
         articleNav.setOnItemClickListener(new NavDrawClickListener());
 
-        mAdapter = new ArtAdapter(articles);
+        mAdapter = new ArtAdapter(headers, contents);
         mRecyclerView.setAdapter(mAdapter);
     }
 
