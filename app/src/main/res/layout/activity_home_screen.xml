@@ -115,6 +115,14 @@
                 android:onClick="verifyApp"
                 android:layout_below="@id/divisor2"
                 android:layout_centerHorizontal="true"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact_button"
+                android:text="@string/contact_us_button"
+                android:onClick="contact"
+                android:layout_below="@id/verify_button"
+                android:layout_centerHorizontal="true"/>
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>
