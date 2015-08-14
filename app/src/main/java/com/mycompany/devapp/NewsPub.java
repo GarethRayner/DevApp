@@ -2,6 +2,7 @@ package com.mycompany.devapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,14 +15,25 @@ import java.io.FileOutputStream;
 import java.util.Scanner;
 
 public class NewsPub extends Activity {
+    SwipeRefreshLayout layout;
+    String file2name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_pub);
 
+        layout = (SwipeRefreshLayout) findViewById(R.id.refresh);
+        layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.d("Refresh", "Refresh action triggered...");
+                refreshList();
+            }
+        });
+
         String file1name = "newsPub.txt";
-        String file2name = "newsPubUpdated.txt";
+        file2name = "newsPubUpdated.txt";
         File file1 = new File(file1name);
         File file2 = new File(file2name);
 
@@ -46,6 +58,7 @@ public class NewsPub extends Activity {
         }
 
         String[] companies = new String[3];
+        String[] descs = new String[3];
         Scanner newsPubs = null;
 
         try {
@@ -60,10 +73,61 @@ public class NewsPub extends Activity {
                 String temp = newsPubs.nextLine();
                 String[] tempArr = temp.split(":");
                 companies[i] = tempArr[0];
+                descs[i] = tempArr[1];
             }
         }
 
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(new ArrayAdapter<String>(this, R.layout.new_article_display, companies));
+        listView.setAdapter(new MyArrAdapter(this.getApplicationContext(), R.layout.news_pub_item, companies, descs));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_news_pub, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch(id) {
+            case R.id.action_refresh:
+                layout.setRefreshing(true);
+                refreshList();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void refreshList() {
+        String[] companies = new String[5];
+        String[] descs = new String[5];
+        Scanner newsPubs = null;
+
+        try {
+            FileInputStream file = openFileInput(file2name);
+            newsPubs = new Scanner(file);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        for(int i = 0; i < 5; i++) {
+            if(newsPubs.hasNextLine()) {
+                String temp = newsPubs.nextLine();
+                String[] tempArr = temp.split(":");
+                companies[i] = tempArr[0];
+                descs[i] = tempArr[1];
+            }
+        }
+
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(new MyArrAdapter(this.getApplicationContext(), R.layout.news_pub_item, companies, descs));
+        layout.setRefreshing(false);
     }
 }
